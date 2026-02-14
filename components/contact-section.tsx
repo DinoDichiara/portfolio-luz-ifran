@@ -2,9 +2,10 @@
 
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-import { Instagram, Mail, Send } from "lucide-react";
+import { Instagram, Mail, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
+import { submitContactForm } from "@/app/actions/contact";
 
 const socialLinks = [
   {
@@ -26,8 +27,8 @@ const socialLinks = [
   {
     name: "Email",
     icon: Mail,
-    href: "mailto:ifranmarialuz@gmail.com",
-    handle: "ifranmarialuz@gmail.com",
+    href: "mailto:dichiaradino951@gmail.com",
+    handle: "dichiaradino951@gmail.com",
   },
 ];
 
@@ -39,6 +40,7 @@ export function ContactSection() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const { t } = useLanguage();
@@ -63,10 +65,23 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setSubmitStatus("idle");
+
+    const result = await submitContactForm(formState);
+
+    if (result.success) {
+      setSubmitStatus("success");
+      setFormState({ name: "", email: "", subject: "", message: "" });
+    } else {
+      setSubmitStatus("error");
+    }
+
     setIsSubmitting(false);
-    setFormState({ name: "", email: "", subject: "", message: "" });
+
+    // Auto-hide the status message after 6 seconds
+    setTimeout(() => {
+      setSubmitStatus("idle");
+    }, 6000);
   };
 
   return (
@@ -210,6 +225,21 @@ export function ContactSection() {
                   placeholder={t.contact.form.messagePlaceholder}
                 />
               </div>
+
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div className="flex items-center gap-3 px-4 py-3 bg-emerald-950/50 border border-emerald-800/50 text-emerald-300">
+                  <CheckCircle2 size={18} className="shrink-0" />
+                  <p className="text-sm">{t.contact.form.success}</p>
+                </div>
+              )}
+              {submitStatus === "error" && (
+                <div className="flex items-center gap-3 px-4 py-3 bg-red-950/50 border border-red-800/50 text-red-300">
+                  <AlertCircle size={18} className="shrink-0" />
+                  <p className="text-sm">{t.contact.form.error}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}

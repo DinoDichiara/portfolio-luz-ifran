@@ -103,6 +103,8 @@ export const translations = {
         messagePlaceholder: "Tell me about your project...",
         send: "Send Message",
         sending: "Sending...",
+        success: "Message sent successfully! I'll get back to you soon.",
+        error: "Something went wrong. Please try again.",
       },
     },
     footer: {
@@ -211,6 +213,8 @@ export const translations = {
         messagePlaceholder: "Cuentame sobre tu proyecto...",
         send: "Enviar Mensaje",
         sending: "Enviando...",
+        success: "Mensaje enviado con exito! Te respondere pronto.",
+        error: "Algo salio mal. Por favor, intenta de nuevo.",
       },
     },
     footer: {

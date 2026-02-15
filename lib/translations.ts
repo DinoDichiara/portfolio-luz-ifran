@@ -40,7 +40,7 @@ export const translations = {
         ugc: "UGC",
       },
       items: {
-        luxuryResort: "Luxury Resort Campaign",
+        drone: "Filming with drone",
         fashionEditorial: "Fashion Editorial",
         skincareUgc: "Skincare Brand UGC",
         summerCollection: "Summer Collection",
@@ -150,7 +150,7 @@ export const translations = {
         ugc: "UGC",
       },
       items: {
-        luxuryResort: "Campana Resort de Lujo",
+        drone: "Filmacion con drone",
         fashionEditorial: "Editorial de Moda",
         skincareUgc: "UGC Marca de Skincare",
         summerCollection: "Coleccion de Verano",

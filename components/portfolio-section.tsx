@@ -8,13 +8,13 @@ import { useLanguage } from "@/lib/language-context";
 const portfolioItemsData = [
   {
     id: 1,
-    titleKey: "luxuryResort" as const,
+    titleKey: "drone" as const,
     categoryKey: "video" as const,
     image:
-      "https://media.canva.com/v2/image-resize/format:JPG/height:1600/quality:92/uri:ifs%3A%2F%2FM%2F50d3539a-b7fc-41ea-95a4-56908c6c0bcb/watermark:F/width:900?csig=AAAAAAAAAAAAAAAAAAAAAL33m50osmANwD06u-8S5CbmdgEQurNi8bWy3sDA2Gy0&exp=1770180962&osig=AAAAAAAAAAAAAAAAAAAAALmV1KvNeZAZ3A3UggYxRDci63qedkjAizp-jfil0p9j&signer=media-rpc&x-canva-quality=screen_2x",
+      "https://vrdmrlazektrdtafgraf.supabase.co/storage/v1/object/public/media/photos/IMG_1586.jpg",
     isVideo: true,
     videoUrl:
-      "https://videos.pexels.com/video-files/4065924/4065924-uhd_2560_1440_30fps.mp4",
+      "https://vrdmrlazektrdtafgraf.supabase.co/storage/v1/object/public/media/videos/1728ecdec2a44e679a867b23663374b6.mp4",
   },
   {
     id: 2,
